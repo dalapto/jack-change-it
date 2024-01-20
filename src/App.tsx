@@ -5,8 +5,8 @@ import React from 'react';
 
 function App() {
 	const [count, setCount] = React.useState(0);
-	const reactLogo = '/react.svg';
-	const viteLogo = '/vite.svg';
+	const reactLogo = '/assets/react.svg';
+	const viteLogo = '/assets/vite.svg';
 
 	return (
 		<>
