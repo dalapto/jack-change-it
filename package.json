@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://jack-change-it.github.io",
+	"homepage": "https://dalapto.github.io/jack-change-it",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
