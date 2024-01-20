@@ -1,15 +1,18 @@
-// import reactLogo from 'react.svg';
-// import viteLogo from '/vite.svg';
 import './App.css';
 import React from 'react';
+import PlayingCard from './components/PlayingCard';
 
 function App() {
-	const [count, setCount] = React.useState(0);
-	const reactLogo = '/assets/react.svg';
-	const viteLogo = '/assets/vite.svg';
+	// const true_path = "/assets/"
+	const reactLogo = '/react.svg';
+	const viteLogo = '/vite.svg';
+	const joker = '/cards/jokers/Atlas_deck_joker_black.svg';
+	const backImg = '/cards/Reverso_baraja_española_rojo.svg';
+	const back = <img src={backImg} className="JokerImage" draggable="false" alt="Jocker" />;
 
 	return (
 		<>
+			<h1>Vite + React</h1>
 			<div className="App">
 				<a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
 					<img src={viteLogo} className="logo" alt="Vite logo" />
@@ -18,14 +21,10 @@ function App() {
 					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+			<PlayingCard className="unselectable">
+				<img src={joker} className="JokerImage" draggable="false" alt="Jocker" />
+				{back}
+			</PlayingCard>
 		</>
 	);
 }
