@@ -18,10 +18,10 @@ function FlipCard({ deck, suit, value }): React.JSX.Element {
 	}
 
 	return (
-		<div className={`unselectable flip-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
+		<div className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
 			<div className="flip-card-inner">
-				<div className="flip-card-front">{front}</div>
-				<div className="flip-card-back">{back}</div>
+				{front}
+				{back}
 			</div>
 		</div>
 	);
