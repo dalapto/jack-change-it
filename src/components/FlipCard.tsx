@@ -1,11 +1,12 @@
 import React from 'react';
+import CardBack from './CardBack';
+import CardFront from './CardFront';
 import './FlipCard.css';
 
-function FlipCard({ children }): React.JSX.Element {
+function FlipCard({ deck, suit, value }): React.JSX.Element {
 	const [isFlipped, setIsFlipped] = React.useState(false);
-	React.useEffect(() => {}, []);
-	const [cardFront, setCardFront] = React.useState(children[0]);
-	const [cardBack, setCardBack] = React.useState(children[1]);
+	const front = <CardFront deck={deck} suit={suit} value={value} />;
+	const back = <CardBack deck={deck} suit={suit} value={value} />;
 
 	function handleFlip() {
 		//if not flipped ->
@@ -19,8 +20,8 @@ function FlipCard({ children }): React.JSX.Element {
 	return (
 		<div className={`unselectable flip-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
 			<div className="flip-card-inner">
-				<div className="flip-card-front">{cardFront}</div>
-				<div className="flip-card-back">{cardBack}</div>
+				<div className="flip-card-front">{front}</div>
+				<div className="flip-card-back">{back}</div>
 			</div>
 		</div>
 	);

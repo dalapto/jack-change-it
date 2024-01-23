@@ -1,7 +1,7 @@
 import React from 'react';
-import CardDeck from './CardDeck';
-import CardHand from './CardHand';
-import CardPile from './CardPile';
+import CardDeck from './Deck';
+import CardHand from './Hand';
+import CardPile from './Pile';
 
 function CardGame({ playerCount = 1, deckCount = 1, cards = 5 }): React.JSX.Element {
 	const hands = {}; // {playerId: Card[]} list of cards per player
@@ -35,11 +35,11 @@ function CardGame({ playerCount = 1, deckCount = 1, cards = 5 }): React.JSX.Elem
 
 	return (
 		<>
-			<CardPile playedCards={pile} />
+			<CardPile cards={pile} />
 			<CardDeck cards={deck} />;
-			{Object.entries(hands).map(({ id, cards }) => {
+			{/* {Object.entries(hands).map(({ id, cards }) => {
 				<CardHand playerId={id} cards={cards} />;
-			})}
+			})} */}
 			<></>
 		</>
 	);

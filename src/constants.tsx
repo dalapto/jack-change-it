@@ -1,39 +1,42 @@
 export enum SUITS {
-	Clubs = 'clubs',
-	Diamonds = 'diamonds',
-	Hearts = 'hearts',
-	Spades = 'spades',
+	Clubs = 'Clubs',
+	Diamonds = 'Diamonds',
+	Hearts = 'Hearts',
+	Spades = 'Spades',
 }
 
-enum PIP_ORDER {
-	Ace = 'ace',
+export enum PIPS {
+	Joker = 'Joker',
+	Ace = 'Ace',
+	Two = 'Two',
+	Three = 'Three',
+	Four = 'Four',
+	Five = 'Five',
+	Six = 'Six',
+	Seven = 'Seven',
+	Eight = 'Eight',
+	Nine = 'Nine',
+	Ten = 'Ten',
+	Jack = 'Jack',
+	Queen = 'Queen',
+	King = 'King',
+}
+
+export enum POWER_ORDER {
+	Joker = 'joker',
 	Two = 'two',
-	Three = 'three',
-	Four = 'four',
-	Five = 'five',
-	Six = 'six',
-	Seven = 'seven',
-	Eight = 'eight',
-	Nine = 'nine',
-	Ten = 'ten',
 	Jack = 'jack',
 	Queen = 'queen',
-	King = 'king',
-	Joker = 'joker',
-}
-
-enum POWER_ORDER {
-	Joker = 'joker',
-	Two = 'two',
-	Jack = 'jack',
-	Queen = 'queen',
 	Eight = 'eight',
 }
 
-const JOKERS_FOLDER = 'jokers';
-const CLUBS_FOLDER = 'clubs';
-const DIAMONDS_FOLDER = 'diamonds';
-const HEARTS_FOLDER = 'hearts';
-const SPADES_FOLDER = 'spades';
+export const CARD_BACK = 'back';
 
-const BACKCARD_FILE = 'reverse_back';
+export const ASSETS_FOLDER = 'assets';
+export const CARDS_FOLDER = 'cards';
+
+export enum DECKS {
+	Atlas = 'atlas',
+	Formin = 'fomin',
+	Kennard = 'kennard',
+}

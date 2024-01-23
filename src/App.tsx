@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import FlipCard from './components/FlipCard';
 import CardImage from './components/CardImage';
+import { DECKS } from './constants';
 
 function App() {
 	// const true_path = "/assets/"
@@ -24,13 +25,9 @@ function App() {
 					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
-			<FlipCard>
-				<CardImage side="front" src={joker1} id="joker1" />
-				<CardImage side="back" src={backImg} id="back" />
-				<CardImage side="front" src={joker2} id="joker2" />
-				<CardImage side="front" src={joker3} id="joker3" />
-				<CardImage side="front" src={joker4} id="joker4" />
-			</FlipCard>
+			<FlipCard deck={DECKS.Atlas} suit="S" value="2" />
+			<FlipCard deck={DECKS.Formin} suit="C" value="12" />
+			<FlipCard deck={DECKS.Kennard} suit="H" value="12" />
 		</>
 	);
 }
