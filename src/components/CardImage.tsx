@@ -1,5 +1,4 @@
 import React from 'react';
-import { ASSETS_FOLDER } from '../constants';
 
 function CardImage({ src, ...dependencies }): React.JSX.Element {
 	if (process.env.NODE_ENV == 'prod') {
