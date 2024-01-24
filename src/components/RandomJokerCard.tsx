@@ -14,9 +14,13 @@ function RandomJokerCard(): React.JSX.Element {
 	const back = <CardBack deck={randomDeck} />;
 
 	React.useEffect(() => {
-		setTimeout(() => {
-			setFlipInProgress(false);
-		}, 900);
+		function waitForFlip() {
+			setTimeout(() => {
+				setFlipInProgress(false);
+			}, 900);
+		}
+
+		waitForFlip();
 	}, [isFlipped]);
 
 	function randomIndex(list) {
