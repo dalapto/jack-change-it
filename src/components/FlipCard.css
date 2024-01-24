@@ -15,7 +15,7 @@
 	transform-style: preserve-3d;
 }
 
-/* Do a horizontal flip when you reversed */
+/* Do a horizontal flip when reversed */
 .flip-card.flipped .flip-card-inner {
 	transform: rotateY(180deg);
 }
