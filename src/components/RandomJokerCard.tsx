@@ -1,28 +1,65 @@
 import React from 'react';
+import { DECKS, JOKERS } from '../constants';
 import CardBack from './CardBack';
 import CardFront from './CardFront';
 import './FlipCard.css';
 
-function RandomJokerCard({ colour }): React.JSX.Element {
+function RandomJokerCard(): React.JSX.Element {
 	const [isFlipped, setIsFlipped] = React.useState(false);
+	const [flipInProgress, setFlipInProgress] = React.useState(false);
+	const [randomJoker, setRandomJoker] = React.useState(getRandomItem(JOKERS));
+	const [randomDeck, setRandomDeck] = React.useState(getRandomItem(DECKS));
 
-	//pick random front
-	const randomJoker = '';
-	const front = <CardFront deck="jokers" suit={''} value={randomJoker} />;
+	const front = <CardFront deck="jokers" suit={''} value={randomJoker} file="" />;
+	const back = <CardBack deck={randomDeck} />;
 
-	// pick random back
-	const randomBack = '';
-	const back = <CardBack deck={randomBack} />;
+	React.useEffect(() => {
+		setTimeout(() => {
+			setFlipInProgress(false);
+		}, 900);
+	}, [isFlipped]);
+
+	function randomIndex(list) {
+		return Math.floor(Math.random() * list.length);
+	}
+
+	function getRandomItem(dictionary, currentItem = '') {
+		const keyList = Object.keys(dictionary);
+		let randomItem = currentItem;
+		while (randomItem == currentItem) {
+			const index = randomIndex(keyList);
+			const key = keyList[index];
+			randomItem = dictionary[key];
+		}
+		return randomItem;
+	}
 
 	function handleFlip() {
-		//if is not flipped, randomise front again
+		if (flipInProgress) {
+			return; // can't flip repeatedly to break effect
+		}
+		setFlipInProgress(true);
+
+		if (isFlipped) {
+			//if about to flip to front, randomise joker
+			setRandomJoker((value) => {
+				return getRandomItem(JOKERS, value);
+			});
+		}
+		if (!isFlipped) {
+			//if about to flip to back, randomise back
+			setRandomDeck((value) => {
+				return getRandomItem(DECKS, value);
+			});
+		}
+
 		setIsFlipped((value) => {
 			return !value;
 		});
 	}
 
 	return (
-		<div className={`flip-card ${isFlipped ? 'flipped' : ''}`} id={`jokers_${colour}`} onClick={handleFlip}>
+		<div className={`flip-card ${isFlipped ? 'flipped' : ''}`} id={`jokers_${randomJoker}`} onClick={handleFlip}>
 			<div className="flip-card-inner">
 				{front}
 				{back}

@@ -32,11 +32,23 @@ export enum POWER_ORDER {
 
 export const CARD_BACK = 'back';
 
-export const ASSETS_FOLDER = 'assets';
 export const CARDS_FOLDER = 'cards';
+export const JOKERS_FOLDER = 'jokers';
 
 export enum DECKS {
 	Atlas = 'atlas',
-	Formin = 'fomin',
+	Formin = 'formin',
 	Kennard = 'kennard',
+}
+
+export enum JOKERS {
+	bronz = 'bronz.jpg',
+	cereal = 'cereal.jpg',
+	cesar = 'cesar.jpg',
+	died = 'died.svg',
+	elf = 'elf.svg',
+	hoku1 = 'hoku1.svg',
+	hoku2 = 'hoku1.svg',
+	tabby = 'tabby.svg',
+	whenthe = 'whenthe.jpg',
 }
