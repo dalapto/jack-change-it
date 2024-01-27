@@ -8,6 +8,7 @@ function PileCard({ deck, value, suit, angle, handleRemoveFromPile, ...delegated
 	delegated.style = { rotate: `0 0 1 ${angle}deg`, width: "15vmax", height: "40vmin" };
 
 	function handleOnClick() {
+		if (isFlipped) return; // can only flip once
 		setIsFlipped(true);
 		setTimeout(() => {
 			handleRemoveFromPile();

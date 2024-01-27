@@ -8,6 +8,7 @@ function DeckCard({ deck, value, suit, handleRemoveFromDeck, ...delegated }): Re
 	delegated["id"] = card;
 
 	function handleOnClick() {
+		if (!isFlipped) return; // can only flip once
 		setIsFlipped(false);
 		setTimeout(() => {
 			handleRemoveFromDeck();
