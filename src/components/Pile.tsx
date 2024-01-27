@@ -1,19 +1,25 @@
-import React from 'react';
-import CardFront from './CardFront';
-import PileCard from './PileCard';
+import React from "react";
+import PileCard from "./PileCard";
+import { range } from "../utils";
 
-function CardPile({ cards }): React.JSX.Element {
+function Pile({ cards, setCards }): React.JSX.Element {
+	function handleRemoveFromPile() {
+		const updatedPile = [...cards];
+		updatedPile.pop();
+		setCards(updatedPile);
+	}
+
 	return (
-		<div className={`flip-card`}>
+		<div className={`flip-card`} onClick={handleRemoveFromPile}>
 			<div className="flip-card-inner">
-				{cards.map(({ deck, suit, value }, index) => {
-					const modIndex = index % 3; // we want to switch between 3 angles, so index 3 has same effect as 0 etc
-					const angle = modIndex == 2 ? 355 : modIndex * 5; // modIndex 0 = 0 degrees, 1 = 5 degrees and 2 = 355 degrees.
-					return <PileCard deck={deck} suit={suit} value={value} angle={angle} />;
+				{range(0, Math.min(2, cards.length - 1)).map((index) => {
+					const { deck, suit, value } = cards[index];
+					const angle = index == 2 ? 355 : index * 5; // index 0 -> 0 degrees, 1 -> 5 degrees and 2 -> 355 degrees.
+					return <PileCard key={`${deck}-${value}${suit}`} deck={deck} suit={suit} value={value} angle={angle} flipped={undefined} setFlipped={undefined} />;
 				})}
 			</div>
 		</div>
 	);
 }
 
-export default CardPile;
+export default Pile;
