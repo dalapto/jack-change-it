@@ -1,18 +1,25 @@
-import React from "react";
-import FlipCard from "./FlipCard";
+import React from 'react';
+import FlipCard from './FlipCard';
 // import { CARDS_FOLDER } from "../constants";
 
 function DeckCard({ deck, value, suit, handleRemoveFromDeck, ...delegated }): React.JSX.Element {
 	const [isFlipped, setIsFlipped] = React.useState(true);
 	const card = `${value}${suit}`;
-	delegated["id"] = card;
+	delegated['id'] = card;
+
+	React.useEffect(() => {
+		function waitForFlip() {
+			setTimeout(() => {
+				handleRemoveFromDeck();
+			}, 900);
+		}
+
+		if (!isFlipped) waitForFlip();
+	}, [isFlipped]);
 
 	function handleOnClick() {
-		if (!isFlipped) return; // can only flip once
+		console.log('DECK');
 		setIsFlipped(false);
-		setTimeout(() => {
-			handleRemoveFromDeck();
-		}, 900);
 	}
 
 	return (
