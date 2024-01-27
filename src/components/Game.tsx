@@ -1,7 +1,7 @@
-import React from 'react';
-import CardDeck from './Deck';
-import CardHand from './Hand';
-import CardPile from './Pile';
+import React from "react";
+import CardDeck from "./Deck";
+import CardHand from "./Hand";
+import CardPile from "./Pile";
 
 function CardGame({ playerCount = 1, deckCount = 1, cards = 5 }): React.JSX.Element {
 	const hands = {}; // {playerId: Card[]} list of cards per player
