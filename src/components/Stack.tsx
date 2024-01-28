@@ -1,8 +1,8 @@
 import React from 'react';
-import DeckCard from './DeckCard';
+import DeckCard from './StackCard';
 import { range } from '../utils';
 
-function Deck({ cards, setCards }): React.JSX.Element {
+function Stack({ cards, setCards }): React.JSX.Element {
 	const handleRemoveFromDeck = React.useCallback(() => {
 		const updatedPile = [...cards];
 		updatedPile.shift();
@@ -21,4 +21,4 @@ function Deck({ cards, setCards }): React.JSX.Element {
 	);
 }
 
-export default Deck;
+export default Stack;

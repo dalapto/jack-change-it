@@ -1,8 +1,9 @@
-import React from "react";
-import { DECKS, JOKERS } from "../constants";
-import CardBack from "./CardBack";
-import CardFront from "./CardFront";
-import "./FlipCard.css";
+import React from 'react';
+import { DECKS, JOKERS } from '../constants';
+import { getRandomItem } from '../utils';
+import CardBack from './CardBack';
+import CardFront from './CardFront';
+import './FlipCard.css';
 
 function RandomJokerCard(): React.JSX.Element {
 	const [isFlipped, setIsFlipped] = React.useState(false);
@@ -10,7 +11,7 @@ function RandomJokerCard(): React.JSX.Element {
 	const [randomJoker, setRandomJoker] = React.useState(getRandomItem(JOKERS));
 	const [randomDeck, setRandomDeck] = React.useState(getRandomItem(DECKS));
 
-	const front = <CardFront deck="jokers" suit={""} value={randomJoker} file="" />;
+	const front = <CardFront deck="jokers" suit={''} value={randomJoker} file="" />;
 	const back = <CardBack deck={randomDeck} />;
 
 	React.useEffect(() => {
@@ -22,21 +23,6 @@ function RandomJokerCard(): React.JSX.Element {
 
 		waitForFlip();
 	}, [isFlipped]);
-
-	function randomIndex(list) {
-		return Math.floor(Math.random() * list.length);
-	}
-
-	function getRandomItem(dictionary, currentItem = "") {
-		const keyList = Object.keys(dictionary);
-		let randomItem = currentItem;
-		while (randomItem == currentItem) {
-			const index = randomIndex(keyList);
-			const key = keyList[index];
-			randomItem = dictionary[key];
-		}
-		return randomItem;
-	}
 
 	function handleFlip() {
 		if (flipInProgress) {
@@ -63,7 +49,7 @@ function RandomJokerCard(): React.JSX.Element {
 	}
 
 	return (
-		<div className={`flip-card ${isFlipped ? "flipped" : ""}`} id={`jokers_${randomJoker}`} onClick={handleFlip}>
+		<div className={`flip-card ${isFlipped ? 'flipped' : ''}`} id={`jokers_${randomJoker}`} onClick={handleFlip}>
 			<div className="flip-card-inner">
 				{front}
 				{back}

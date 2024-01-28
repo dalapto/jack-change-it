@@ -1,48 +1,56 @@
-import React from "react";
-import CardDeck from "./Deck";
-import CardHand from "./Hand";
-import CardPile from "./Pile";
+import './Game.css';
+import React from 'react';
+import { DECKS } from './../constants';
+import Stack from './Stack';
+import Pile from './Pile';
+import { CardCollection, CardType } from './types';
+import CardGroup from './CardGroup';
 
-function CardGame({ playerCount = 1, deckCount = 1, cards = 5 }): React.JSX.Element {
-	const hands = {}; // {playerId: Card[]} list of cards per player
-	const deck = []; // cards to pick from
-	const pile = []; // list of plaued cards
-	const allCards = [];
+function Game() {
+	const samplePile: CardCollection = [
+		{ deck: DECKS.Formin, suit: 'C', value: '1' },
+		{ deck: DECKS.Atlas, suit: 'S', value: '6' },
+		{ deck: DECKS.Kennard, suit: 'S', value: '9' },
+		{ deck: DECKS.Formin, suit: 'C', value: '6' },
+		{ deck: DECKS.Atlas, suit: 'S', value: '7' },
+		{ deck: DECKS.Formin, suit: 'C', value: '10' },
+	];
 
-	// each card must have unique id
-	// pips_suit_deck -> 4C_atlas
+	const sampleDeck: CardCollection = [
+		{ deck: DECKS.Formin, suit: 'D', value: '13' },
+		{ deck: DECKS.Atlas, suit: 'H', value: '12' },
+		{ deck: DECKS.Kennard, suit: 'D', value: '11' },
+		{ deck: DECKS.Kennard, suit: 'H', value: '13' },
+		{ deck: DECKS.Kennard, suit: 'H', value: '12' },
+	];
+	const [pile, setPile] = React.useState<CardCollection>(samplePile);
+	const [deck, setDeck] = React.useState<CardCollection>(sampleDeck);
+	const displayedPile = pile.slice(0, 3);
+	const displayedDeck = deck.slice(0, 2);
 
-	function pickRandomCard(possibleCards) {
-		// choose r = random index in range of possible list
-		// const pickedCard = possibleCards[r]
-		// remove possibleCards[r] as possible card
-		return; // picked card
-	}
-
-	function pickHand(shuffledCards, cardsToTake) {
-		const hand = shuffledCards.splice(0, cardsToTake);
-		return hand;
-	}
-
-	// fisher-yates
-	// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-	function shuffleDeck(possibleCards) {
-		for (let i = possibleCards.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[possibleCards[i], possibleCards[j]] = [possibleCards[j], possibleCards[i]];
+	function takeCard() {
+		if (deck.length < 1) {
+			return;
 		}
+		const updatedDeck = [...deck];
+		const takenCard = updatedDeck.shift();
+		setDeck(updatedDeck);
+		const updatedPile = [...pile];
+		updatedPile.unshift(takenCard!);
+		setPile(updatedPile);
 	}
 
 	return (
 		<>
-			<CardPile cards={pile} />
-			<CardDeck cards={deck} />;
-			{/* {Object.entries(hands).map(({ id, cards }) => {
-				<CardHand playerId={id} cards={cards} />;
-			})} */}
-			<></>
+			<div className="Game">
+				{/* <FlipCard deck={DECKS.Atlas} suit="S" value="11"  flipped={flipped} onClick={}/> */}
+				{/* <FlipCard deck={DECKS.Formin} suit="C" value="12" /> */}
+				{/* <FlipCard deck={DECKS.Kennard} suit="H" value="13" /> */}
+				{displayedDeck.length > 0 && <CardGroup handleOnClick={takeCard} displayedCards={displayedDeck} frontShown={false} />}
+				{displayedPile.length > 0 && <Pile displayedCards={displayedPile} />}
+			</div>
 		</>
 	);
 }
 
-export default CardGame;
+export default Game;
