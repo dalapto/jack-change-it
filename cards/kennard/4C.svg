@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2.5in" height="3.5in" viewBox="-120 -168 240 336" preserveAspectRatio="none" class="card" face="4C">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" height="540" viewBox="-120 -168 240 336" preserveAspectRatio="none" class="card" face="4C">
    <symbol id="C" viewBox="-600 -600 1200 1200" preserveAspectRatio="xMinYMid">
       <path d="M30 150C35 385 85 400 130 500L-130 500C-85 400 -35 385 -30 150A10 10 0 0 0 -50 150A210 210 0 1 1 -124 -51A10 10 0 0 0 -110 -65A230 230 0 1 1 110 -65A10 10 0 0 0 124 -51A210 210 0 1 1 50 150A10 10 0 0 0 30 150Z" fill="black"/>
    </symbol>
