@@ -1,7 +1,7 @@
-import React from 'react';
-import CardBack from './CardBack';
-import CardFront from './CardFront';
-import './FlipCard.css';
+import React from "react";
+import CardBack from "./CardBack";
+import CardFront from "./CardFront";
+import "./FlipCard.css";
 
 function FlipCard({ deck, suit, value, frontShown = true, handleOnClick, ...delegated }): React.JSX.Element {
 	const [showFront, setShowFront] = React.useState(frontShown);
@@ -13,14 +13,13 @@ function FlipCard({ deck, suit, value, frontShown = true, handleOnClick, ...dele
 		function waitForFlip() {
 			setTimeout(() => {
 				handleOnClick();
-				console.log('HAU');
 			}, 900);
 		}
 		if (showFront != frontShown) waitForFlip();
-	}, [showFront]);
+	}, [showFront, frontShown, handleOnClick]);
 	return (
 		<div
-			className={`flip-card${!showFront ? ' flipped' : ''}`}
+			className={`flip-card${!showFront ? " flipped" : ""}`}
 			id={`${deck}_${value}${suit}`}
 			onClick={() => {
 				setShowFront((value) => !value);

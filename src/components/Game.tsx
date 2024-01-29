@@ -1,27 +1,26 @@
-import './Game.css';
-import React from 'react';
-import { DECKS } from './../constants';
-import Stack from './Stack';
-import Pile from './Pile';
-import { CardCollection, CardType } from './types';
-import CardGroup from './CardGroup';
+import "./Game.css";
+import React from "react";
+import { DECKS } from "./../constants";
+import Pile from "./Pile";
+import { CardCollection } from "./types";
+import CardGroup from "./CardGroup";
 
 function Game() {
 	const samplePile: CardCollection = [
-		{ deck: DECKS.Formin, suit: 'C', value: '1' },
-		{ deck: DECKS.Atlas, suit: 'S', value: '6' },
-		{ deck: DECKS.Kennard, suit: 'S', value: '9' },
-		{ deck: DECKS.Formin, suit: 'C', value: '6' },
-		{ deck: DECKS.Atlas, suit: 'S', value: '7' },
-		{ deck: DECKS.Formin, suit: 'C', value: '10' },
+		{ deck: DECKS.Formin, suit: "C", value: "1" },
+		{ deck: DECKS.Atlas, suit: "S", value: "6" },
+		{ deck: DECKS.Kennard, suit: "S", value: "9" },
+		{ deck: DECKS.Formin, suit: "C", value: "6" },
+		{ deck: DECKS.Atlas, suit: "S", value: "7" },
+		{ deck: DECKS.Formin, suit: "C", value: "10" },
 	];
 
 	const sampleDeck: CardCollection = [
-		{ deck: DECKS.Formin, suit: 'D', value: '13' },
-		{ deck: DECKS.Atlas, suit: 'H', value: '12' },
-		{ deck: DECKS.Kennard, suit: 'D', value: '11' },
-		{ deck: DECKS.Kennard, suit: 'H', value: '13' },
-		{ deck: DECKS.Kennard, suit: 'H', value: '12' },
+		{ deck: DECKS.Formin, suit: "D", value: "13" },
+		{ deck: DECKS.Atlas, suit: "H", value: "12" },
+		{ deck: DECKS.Kennard, suit: "D", value: "11" },
+		{ deck: DECKS.Kennard, suit: "H", value: "13" },
+		{ deck: DECKS.Kennard, suit: "H", value: "12" },
 	];
 	const [pile, setPile] = React.useState<CardCollection>(samplePile);
 	const [deck, setDeck] = React.useState<CardCollection>(sampleDeck);
