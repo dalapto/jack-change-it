@@ -4,7 +4,7 @@ import PlayedCard from "./PlayedCard";
 function Pile({ displayedCards, ...delegated }): React.JSX.Element {
 	const [usedAngles, setUsedAngles] = React.useState({});
 	const displayedCardKeys = displayedCards.map(({ deck, suit, value }) => `${deck}_${value}${suit}`);
-	const possibleAngles = [0, 5, 355];
+	const possibleAngles = [3, 10, 353];
 
 	function getUnusedAngle(deck, suit, value) {
 		const key = `${deck}_${value}${suit}`;
