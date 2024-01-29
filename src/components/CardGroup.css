@@ -1,6 +1,5 @@
 .card-layer {
-	grid-column: 1;
-	grid-row: 1;
+	display: grid;
 	width: 15vmax;
 	height: 45vmin;
 	perspective: 1000px;

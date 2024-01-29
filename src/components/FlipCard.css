@@ -3,6 +3,8 @@
 	width: 15vmax;
 	height: 45vmin;
 	perspective: 1000px;
+	grid-column: 1;
+	grid-row: 1;
 }
 
 /* This container is needed to position the front and back side */
