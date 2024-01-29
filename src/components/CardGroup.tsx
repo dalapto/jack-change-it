@@ -1,6 +1,6 @@
-import React from 'react';
-import FlipCard from './FlipCard';
-import './CardGroup.css';
+import React from "react";
+import FlipCard from "./FlipCard";
+import "./CardGroup.css";
 
 function CardGroup({ displayedCards, frontShown = true, handleOnClick, ...delegated }): React.JSX.Element {
 	return (

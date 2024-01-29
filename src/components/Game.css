@@ -1,4 +1,6 @@
 .Game {
 	display: flex;
-	align-items: center;
+	gap: 10vmin;
+	justify-content: center;
+	margin-top: 10vmin;
 }

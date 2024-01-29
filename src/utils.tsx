@@ -11,7 +11,7 @@ function randomIndex(list) {
 	return Math.floor(Math.random() * list.length);
 }
 
-export function getRandomItem(dictionary, currentItem = '') {
+export function getRandomItem(dictionary, currentItem = "") {
 	const keyList = Object.keys(dictionary);
 	let randomItem = currentItem;
 	while (randomItem == currentItem) {

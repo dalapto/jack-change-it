@@ -1,12 +1,13 @@
 import React from "react";
-import PlayedCard from "./PlayedCard";
+import PileCard from "./PileCard";
+import { CardType, SuitType } from "./types";
 
 function Pile({ displayedCards, ...delegated }): React.JSX.Element {
 	const [usedAngles, setUsedAngles] = React.useState({});
 	const displayedCardKeys = displayedCards.map(({ deck, suit, value }) => `${deck}_${value}${suit}`);
 	const possibleAngles = [3, 10, 353];
 
-	function getUnusedAngle(deck, suit, value) {
+	function getUnusedAngle(deck: string, suit: SuitType, value: CardType) {
 		const key = `${deck}_${value}${suit}`;
 		const updatedAngles = { ...usedAngles };
 
@@ -30,11 +31,11 @@ function Pile({ displayedCards, ...delegated }): React.JSX.Element {
 	}
 
 	return (
-		<div className="card-pile">
+		<div className="card-layer">
 			{displayedCards.map(({ deck, suit, value }, index) => {
 				const angle = getUnusedAngle(deck, suit, value);
 				delegated.style = { rotate: `0 0 1 ${angle}deg`, width: "15vmax", height: "40vmin", zIndex: displayedCards.length - index };
-				return <PlayedCard frontShown={true} key={`${deck}_${value}${suit}`} deck={deck} suit={suit} value={value} {...delegated} />;
+				return <PileCard {...delegated} key={`${deck}_${value}${suit}`} deck={deck} suit={suit} value={value} />;
 			})}
 		</div>
 	);

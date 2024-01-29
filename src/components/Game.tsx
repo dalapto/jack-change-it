@@ -4,6 +4,7 @@ import { DECKS } from "./../constants";
 import Pile from "./Pile";
 import { CardCollection } from "./types";
 import CardGroup from "./CardGroup";
+import RandomJokerCard from "./RandomJokerCard";
 
 function Game() {
 	const samplePile: CardCollection = [
@@ -48,6 +49,7 @@ function Game() {
 				{displayedDeck.length > 0 && <CardGroup handleOnClick={takeCard} displayedCards={displayedDeck} frontShown={false} />}
 				{displayedPile.length > 0 && <Pile displayedCards={displayedPile} />}
 			</div>
+			<div className="Game">{displayedDeck.length < 1 && <RandomJokerCard />}</div>
 		</>
 	);
 }
