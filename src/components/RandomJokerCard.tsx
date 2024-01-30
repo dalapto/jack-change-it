@@ -18,6 +18,7 @@ function RandomJokerCard({ flipped = true }): React.JSX.Element {
 		function waitForFlip() {
 			setTimeout(() => {
 				setFlipInProgress(false);
+				handleFlip();
 			}, 1000);
 		}
 
